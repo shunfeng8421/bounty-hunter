@@ -1,0 +1,8 @@
+﻿# Workspace (cloned repos)
+workspace/*
+!workspace/.gitkeep
+!workspace/discovered_bounties.jsonl
+
+# Python
+__pycache__/
+*.pyc
