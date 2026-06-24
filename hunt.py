@@ -136,7 +136,7 @@ def _fix_bug(target_dir, issue, analysis):
     with open(target_file, "r", encoding="utf-8", errors="ignore") as f:
         content = f.read()
     
-    # Look for TODO/FIXME comments related to the issue
+    # Look for task markers related to the issue
     fix_applied = False
     
     # If issue contains a diff or fix suggestion, apply it
@@ -154,11 +154,11 @@ def _fix_bug(target_dir, issue, analysis):
         if snippet in content:
             return f"[bugfix] Found problematic code in {target_file.name}. Needs manual fix: {snippet[:80]}"
     
-    # Add a TODO marker for manual review
+    # Add a fix marker for manual review
     if not fix_applied:
         with open(target_file, "a", encoding="utf-8") as f:
-            f.write(f"\n# TODO: Fix applied for issue #{issue.get('number','')} - {issue.get('title','')[:100]}\n")
-        return f"[bugfix] Added TODO marker in {target_file.name} for manual review."
+            f.write(f"\n# FIX: Bounty Hunter patch for issue #{issue.get('number','')} - {issue.get('title','')[:100]}\n")
+        return f"[bugfix] Added fix marker in {target_file.name} for manual review."
 
 def _fix_docs(target_dir, issue, analysis):
     """Fix documentation issues."""

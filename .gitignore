@@ -6,3 +6,19 @@ workspace/*
 # Python
 __pycache__/
 *.pyc
+
+# Secrets & env
+.env
+*.pem
+*.key
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
